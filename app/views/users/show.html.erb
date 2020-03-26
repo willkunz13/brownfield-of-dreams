@@ -1,6 +1,11 @@
 <section class="dashboard-main">
   <h1> <%= current_user.first_name %>'s Dashboard </h1>
 
+  <h3> Repositories </h3>
+  <% dash.generate_repo.take(5).each do |repo| %>
+    <%= link_to repo.name, repo.url %><br>
+  <% end %>
+
   <%= button_to 'Log Out', logout_path, method: 'delete', class: "btn btn-primary mb1 bg-teal" %>
   <h3>Account Details</h3>
   <ul>
@@ -9,5 +14,7 @@
   </ul>
   <section>
     <h1>Bookmarked Segments</h1>
+    <%= link_to "Connect to GitHub", "https://github.com/login/oauth/authorize?client_id=0d188ebb72526258a36b&scope=repo" %>
   </section>
 </section>
+
