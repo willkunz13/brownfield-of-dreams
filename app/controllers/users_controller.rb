@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   def show
+    render locals: {
+      dash: DashboardFacade.new
+    }
   end
 
   def new
@@ -13,7 +16,7 @@ class UsersController < ApplicationController
       redirect_to dashboard_path
     else
       flash[:error] = 'Username already exists'
-      render :new
+      redirect_back(fallback_location: "/register")
     end
   end
 
