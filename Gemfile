@@ -14,6 +14,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'webpacker', '~> 3.5'
 
+
 gem 'yt', '~> 0.29.1'
 gem 'google-api-client'
 gem 'faraday'
@@ -26,6 +27,7 @@ gem 'omniauth-google-oauth2'
 gem 'will_paginate'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'omniauth-census', git: "https://github.com/turingschool-projects/omniauth-census"
+gem 'omniauth-github'
 
 
 group :development, :test do
