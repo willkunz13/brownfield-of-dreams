@@ -14,9 +14,5 @@ RSpec.describe "as a guess user", type: :feature do
       expect(user.status).to eq("non_active")
       expect(page).to have_content("This account has not yet been activated. Please check your email.")
     end
-
-    it "can see message generated when making an account" do
-
-    end
   end
 end
