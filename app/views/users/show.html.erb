@@ -1,13 +1,24 @@
 <section class="dashboard-main">
   <h1> <%= current_user.first_name %>'s Dashboard </h1>
 
-  <h3> Repositories </h3>
+	<section class=github>
+	<h2> GITHUB </h2>
   <section class="repo">
   <% if current_user.token %>
-	<% dash.generate_repo.take(5).each do |repo| %>
+  	<h3> Repositories </h3>
+		<% dash.generate_repo.take(5).each do |repo| %>
     		<%= link_to repo.name, repo.url %><br>
   	<% end %>
+		<h3> Followers </h3>
+		<% dash.generate_followers.take(5).each do |follower| %>
+				<%= link_to follower.name, follower.url %><br>
+		<% end %>
+		<h3> Followings </h3>
+		<% dash.generate_followings.take(5).each do |followee| %>
+				<%= link_to followee.name, followee.url %><br>
+		<% end %>
   <% end %>
+	</section>
   </section>
  
 
