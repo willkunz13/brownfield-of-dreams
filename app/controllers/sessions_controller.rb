@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       redirect_to dashboard_path
+      flash[:sucess] = "Logged in as #{user.first_name}"
     else
       flash[:error] = "Looks like your email or password is invalid"
       render :new
