@@ -2,8 +2,8 @@ class User::FriendsController < ApplicationController
 	def create
 		target = User.where(username: params[:username]).first
 		source = User.find(params[:source])
-		if !target
-			flash[:notice] = "Unable to locate friend"
+		if !target || !source
+			flash[:notice] = "Unable locate one or more users"
 			redirect_back(fallback_loaction: '/')
 		else
 			create_friendship(source, target)

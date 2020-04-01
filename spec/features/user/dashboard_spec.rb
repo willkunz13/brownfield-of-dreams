@@ -55,7 +55,6 @@ describe 'A registered user', :vcr do
 
 		visit dashboard_path
 		within('#Followers') do
-			expect(page).to have_content("Add Friend")
 			click_on "Add Friend"
 		end
 		expect(current_path).to eq(dashboard_path)
