@@ -1,7 +1,9 @@
 <section class="dashboard-main">
   <h1> <%= current_user.first_name %>'s Dashboard </h1>
-  <% if current_user.status == "non_active" %>
+  <% if current_user.status == "inactive" %>
     <h3>This account has not yet been activated. Please check your email.</h3>
+    <% else %>
+    <p>Account Status: Active</p>
   <% end %>
 
 	<section class=github>
