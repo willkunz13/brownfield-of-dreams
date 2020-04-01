@@ -13,17 +13,9 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     if user.save
       session[:user_id] = user.id
+      NotificationMailer.new_notification_email(user).deliver_now
+      flash[:success] = "Email has been sent to #{user.first_name}'s' email."
       redirect_to dashboard_path
-      
-        # Tell the UserMailer to send a welcome email after save
-        UserMailer.with(user: @user).welcome_email.deliver_later
- 
-        # format.html { redirect_to(@user, notice: 'User was successfully created.') }
-        format.json { render json: @user, status: :created, location: @user }
-      # else
-      #   format.html { render action: 'new' }
-      #   format.json { render json: @user.errors, status: :unprocessable_entity }
-      # end
     else
       flash[:error] = 'Username already exists'
       redirect_back(fallback_location: "/register")
