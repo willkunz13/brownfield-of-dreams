@@ -11,11 +11,19 @@
   	<% end %>
 		<h3> Followers </h3>
 		<% dash.generate_followers.take(5).each do |follower| %>
-				<%= link_to follower.name, follower.url %><br>
+			<p>	<%= link_to follower.name, follower.url %><br>
+				<% if follower.link %>
+					<%= link_to "Add Friend", follower.url  %>
+				<% end %>
+			</p>
 		<% end %>
 		<h3> Followings </h3>
 		<% dash.generate_followings.take(5).each do |followee| %>
-				<%= link_to followee.name, followee.url %><br>
+			<p>	<%= link_to followee.name, followee.url %><br>
+				<% if follower.link %>
+          <%= link_to "Add Friend", follower.url  %>
+        <% end %>
+			</p>
 		<% end %>
   <% end %>
 	</section>

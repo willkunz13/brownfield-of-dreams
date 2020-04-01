@@ -36,4 +36,25 @@ describe 'A registered user', :vcr do
 			expect(page).to have_content("itemniner")
 		end
 	end
+
+	it 'friending' do
+		create_list(:user, 3)
+
+		user = User.first
+		user.token = ENV['GITHUB_TEST_KEY']
+    user.username = "willkunz13"
+    user.save
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+
+		last = User.last
+		last.token = ENV['GITHUB_EXTRA_KEY']
+    last.username = 'itemniner'
+    last.save
+
+		visit dashboard_path
+		save_and_open_page
+		expect(page).to have_content("Add Friend")
+	end
 end
