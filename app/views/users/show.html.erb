@@ -10,21 +10,25 @@
     		<%= link_to repo.name, repo.url %><br>
   	<% end %>
 		<h3> Followers </h3>
+		<section id=Followers>
 		<% dash.generate_followers.take(5).each do |follower| %>
 			<p>	<%= link_to follower.name, follower.url %><br>
 				<% if follower.link %>
-					<%= link_to "Add Friend", user_friends_path(username: follower.name, source: current_user.id), method: :post  %>
+					<%= button_to "Add Friend", user_friends_path(username: follower.name, source: current_user.id), method: :post  %>
 				<% end %>
 			</p>
 		<% end %>
+		</section>
 		<h3> Followings </h3>
+		<section id='Followees'>
 		<% dash.generate_followings.take(5).each do |followee| %>
 			<p>	<%= link_to followee.name, followee.url %><br>
-				<% if followee %>
-          <%= link_to "Add BUtter", followee.url  %>
+				<% if followee.link %>
+          <%= button_to "Add Friend", user_friends_path(username: followee.name, source: current_user.id), method: :post  %>
         <% end %>
 			</p>
 		<% end %>
+		</section>
   <% end %>
 	</section>
   </section>
