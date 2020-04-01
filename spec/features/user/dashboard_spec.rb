@@ -54,7 +54,14 @@ describe 'A registered user', :vcr do
     last.save
 
 		visit dashboard_path
-		save_and_open_page
 		expect(page).to have_content("Add Friend")
+		click_on "Add Friend"
+		expect(current_path).to eq(dashboard_path)
+		expect(page).to have_content("Friendship Created")
+		binding.pry
+		save_and_open_page
+		click_on "Add Friend"
+		expect(page).to have_content("Already a Friend")
+		save_and_open_page
 	end
 end

@@ -13,15 +13,15 @@
 		<% dash.generate_followers.take(5).each do |follower| %>
 			<p>	<%= link_to follower.name, follower.url %><br>
 				<% if follower.link %>
-					<%= link_to "Add Friend", follower.url  %>
+					<%= link_to "Add Friend", user_friends_path(username: follower.name, source: current_user.id), method: :post  %>
 				<% end %>
 			</p>
 		<% end %>
 		<h3> Followings </h3>
 		<% dash.generate_followings.take(5).each do |followee| %>
 			<p>	<%= link_to followee.name, followee.url %><br>
-				<% if follower.link %>
-          <%= link_to "Add Friend", follower.url  %>
+				<% if followee %>
+          <%= link_to "Add BUtter", followee.url  %>
         <% end %>
 			</p>
 		<% end %>
