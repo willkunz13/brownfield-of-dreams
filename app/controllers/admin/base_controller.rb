@@ -1,6 +1,8 @@
 # rubocop:todo Style/Documentation
 # frozen_string_literal: true
 
+# rubocop:disable Style/ClassAndModuleChildren
+
 class Admin::BaseController < ApplicationController
   before_action :require_admin!
 
@@ -9,3 +11,4 @@ class Admin::BaseController < ApplicationController
   end
 end
 # rubocop:enable Style/Documentation
+# rubocop:enable Style/ClassAndModuleChildren

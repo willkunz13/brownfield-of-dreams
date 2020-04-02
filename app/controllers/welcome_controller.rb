@@ -1,3 +1,4 @@
+# rubocop:todo Style/Documentation
 # frozen_string_literal: true
 
 class WelcomeController < ApplicationController
@@ -31,3 +32,4 @@ class WelcomeController < ApplicationController
     end
   end
 end
+# rubocop:enable Style/Documentation

@@ -1,6 +1,8 @@
 # rubocop:todo Style/Documentation
 # frozen_string_literal: true
 
+# rubocop:disable Style/ClassAndModuleChildren
+
 class Admin::TutorialsController < Admin::BaseController
   require_relative './concerns/imageable.rb'
   include Imageable
@@ -56,3 +58,4 @@ class Admin::TutorialsController < Admin::BaseController
   end
 end
 # rubocop:enable Style/Documentation
+# rubocop:enable Style/ClassAndModuleChildren

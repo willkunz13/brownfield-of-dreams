@@ -1,6 +1,8 @@
 # rubocop:todo Style/Documentation
 # frozen_string_literal: true
 
+# rubocop:disable Style/ClassAndModuleChildren
+
 class User::FriendsController < ApplicationController
   def create
     target = User.where(username: params[:username]).first
@@ -16,8 +18,8 @@ class User::FriendsController < ApplicationController
   private
 
   def create_friendship(source, target)
-    previous_friendship = Friendship.where(\
-      predator_id: source.id, prey_id: target.id)
+    previous_friendship = Friendship.where(predator_id: source.id,
+                                           prey_id: target.id)
     if previous_friendship.empty?
       Friendship.create(predator_id: source.id, prey_id: target.id)
       flash[:notice] = 'Friendship Created'
@@ -33,3 +35,4 @@ class User::FriendsController < ApplicationController
   end
 end
 # rubocop:enable Style/Documentation
+# rubocop:enable Style/ClassAndModuleChildren

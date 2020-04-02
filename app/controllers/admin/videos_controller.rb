@@ -1,6 +1,9 @@
 # rubocop:todo Style/Documentation
 # frozen_string_literal: true
 
+# rubocop:disable Style/ClassAndModuleChildren
+# rubocop:disable Metrics/AbcSize
+
 class Admin::VideosController < Admin::BaseController
   def edit
     @video = Video.find(params[:video_id])
@@ -11,20 +14,17 @@ class Admin::VideosController < Admin::BaseController
     video.update(video_params)
   end
 
-  def create # rubocop:todo Metrics/AbcSize
+  def create
     begin
       tutorial  = Tutorial.find(params[:tutorial_id])
       thumbnail = YouTube::Video.by_id(new_video_params[:video_id]).thumbnail
-      video     = tutorial.videos.new(new)
-      new       = new_video_params.merge(thumbnail: thumbnail)
-
+      video     = tutorial.videos.new(var)
+      var       = new_video_params.merge(thumbnail: thumbnail)
       video.save
-
       flash[:success] = 'Successfully created video.'
     rescue StandardError
       flash[:error] = 'Unable to create video.'
     end
-
     redirect_to edit_admin_tutorial_path(id: tutorial.id)
   end
 
@@ -39,3 +39,5 @@ class Admin::VideosController < Admin::BaseController
   end
 end
 # rubocop:enable Style/Documentation
+# rubocop:enable Style/ClassAndModuleChildren
+# rubocop:enable Metrics/AbcSize
