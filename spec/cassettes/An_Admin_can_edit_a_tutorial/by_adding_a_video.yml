@@ -21,11 +21,11 @@ http_interactions:
       message: OK
     headers:
       X-Guploader-Uploadid:
-      - AEnB2UrOMtydEeijfCFUmgom5xZfflcWyZln-pzrcaYflXRHzwfV3jiKeftOYTEfIkx6eupt5vzb2XgOEs91-b1esI9TiPNVVw
+      - AEnB2UoSw6i7bTGX9Ik8qtTKTdp54pJD3GilAH_xx6vNUMvSOt33a1fPUnjC-fiz_JR7qBdU8QEcwrWfuSQNeWLTJGW186EQSA
       Expires:
-      - Sat, 28 Mar 2020 20:33:41 GMT
+      - Wed, 01 Apr 2020 22:24:10 GMT
       Date:
-      - Sat, 28 Mar 2020 19:33:41 GMT
+      - Wed, 01 Apr 2020 21:24:10 GMT
       Last-Modified:
       - Thu, 13 Feb 2020 19:33:45 GMT
       Etag:
@@ -56,7 +56,7 @@ http_interactions:
       Cache-Control:
       - public, max-age=3600
       Age:
-      - '1561'
+      - '1966'
       Alt-Svc:
       - quic=":443"; ma=2592000; v="46,43",h3-Q050=":443"; ma=2592000,h3-Q049=":443";
         ma=2592000,h3-Q048=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443";
@@ -65,7 +65,7 @@ http_interactions:
       encoding: UTF-8
       string: 80.0.3987.106
     http_version: null
-  recorded_at: Sat, 28 Mar 2020 19:59:42 GMT
+  recorded_at: Wed, 01 Apr 2020 21:56:56 GMT
 - request:
     method: get
     uri: https://www.googleapis.com/youtube/v3/videos?id=J7ikFUlkP_k&key=<YOUTUBE_API_KEY>&part=snippet,contentDetails,statistics
@@ -85,13 +85,13 @@ http_interactions:
       message: OK
     headers:
       Expires:
-      - Sat, 28 Mar 2020 19:59:44 GMT
+      - Wed, 01 Apr 2020 21:56:58 GMT
       Date:
-      - Sat, 28 Mar 2020 19:59:44 GMT
+      - Wed, 01 Apr 2020 21:56:58 GMT
       Cache-Control:
       - private, max-age=0, must-revalidate, no-transform
       Etag:
-      - '"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/yr6nlJk7LNa2RcC1GxXqTk89XiI"'
+      - '"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/oNjUSL5c8Ln3RmCYUsde702AQtg"'
       Vary:
       - Origin
       - X-Origin
@@ -118,7 +118,7 @@ http_interactions:
       string: |
         {
          "kind": "youtube#videoListResponse",
-         "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/yr6nlJk7LNa2RcC1GxXqTk89XiI\"",
+         "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/oNjUSL5c8Ln3RmCYUsde702AQtg\"",
          "pageInfo": {
           "totalResults": 1,
           "resultsPerPage": 1
@@ -126,7 +126,7 @@ http_interactions:
          "items": [
           {
            "kind": "youtube#video",
-           "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/48pXvh0ZgScpZMDBw_N8IlfSnHs\"",
+           "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/xMK1rGay--P5UNpRVrtfT8Ps8wU\"",
            "id": "J7ikFUlkP_k",
            "snippet": {
             "publishedAt": "2018-07-23T20:59:59.000Z",
@@ -177,7 +177,7 @@ http_interactions:
             "projection": "rectangular"
            },
            "statistics": {
-            "viewCount": "267",
+            "viewCount": "268",
             "likeCount": "2",
             "dislikeCount": "0",
             "favoriteCount": "0",
@@ -187,5 +187,5 @@ http_interactions:
          ]
         }
     http_version: null
-  recorded_at: Sat, 28 Mar 2020 19:59:44 GMT
+  recorded_at: Wed, 01 Apr 2020 21:56:58 GMT
 recorded_with: VCR 5.1.0

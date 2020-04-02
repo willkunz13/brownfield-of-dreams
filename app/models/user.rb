@@ -8,4 +8,13 @@ class User < ApplicationRecord
   enum role: [:default, :admin]
   enum status: [:inactive, :active]
   has_secure_password
+
+	has_many :pursuits,  :foreign_key => 'predator_id',
+                       :class_name => 'Friendship',
+                       :dependent => :destroy
+  has_many :preys,     :through => :pursuits
+  has_many :escapes,   :foreign_key => 'prey_id',
+                       :class_name => 'Friendship',
+                       :dependent => :destroy
+  has_many :predators, :through => :escapes
 end

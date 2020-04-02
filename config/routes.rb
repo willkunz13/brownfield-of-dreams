@@ -26,6 +26,10 @@ Rails.application.routes.draw do
     end
   end
 
+	namespace :user do
+		resources :friends, only:[:create]
+	end
+
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"

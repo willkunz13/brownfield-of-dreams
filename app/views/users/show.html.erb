@@ -15,17 +15,36 @@
     		<%= link_to repo.name, repo.url %><br>
   	<% end %>
 		<h3> Followers </h3>
+		<section id=Followers>
 		<% dash.generate_followers.take(5).each do |follower| %>
-				<%= link_to follower.name, follower.url %><br>
+			<p>	<%= link_to follower.name, follower.url %><br>
+				<% if follower.link %>
+					<%= button_to "Add Friend", user_friends_path(username: follower.name, source: current_user.id), method: :post  %>
+				<% end %>
+			</p>
 		<% end %>
+		</section>
 		<h3> Followings </h3>
+		<section id='Followees'>
 		<% dash.generate_followings.take(5).each do |followee| %>
-				<%= link_to followee.name, followee.url %><br>
+			<p>	<%= link_to followee.name, followee.url %><br>
+				<% if followee.link %>
+          <%= button_to "Add Friend", user_friends_path(username: followee.name, source: current_user.id), method: :post  %>
+        <% end %>
+			</p>
 		<% end %>
+		</section>
   <% end %>
 	</section>
   </section>
- 
+	<% if dash.friends %>
+		<h3> Friends </h3>
+		<section id="Friends">
+			<% dash.friends.each do |friend| %>
+				<p> <%= friend.username %> </p>
+			<% end %>
+		</section>
+	<% end %>
 
   <%= button_to 'Log Out', logout_path, method: 'delete', class: "btn btn-primary mb1 bg-teal" %>
   <h3>Account Details</h3>
@@ -35,6 +54,9 @@
   </ul>
   <section>
     <h1>Bookmarked Segments</h1>
+			<% dash.bookmarks.each do |bookmark| %>
+				<p><%= bookmark.title %></p>
+			<% end %>
     <%= link_to "Connect to GitHub", github_login_path %>
   </section>
 </section>
