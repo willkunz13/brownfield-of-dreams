@@ -25,11 +25,12 @@ AddMissingIndexesOnTaggings.class_eval do
       add_index :taggings, %i[tagger_id tagger_type]
     end
 
-    # rubocop:todo Style/GuardClause
-    unless index_exists? :taggings, %i[taggable_id taggable_type tagger_id context], name: 'taggings_idy'
-      add_index :taggings, %i[taggable_id taggable_type tagger_id context], name: 'taggings_idy'
+    unless index_exists? :taggings,
+                         %i[taggable_id taggable_type tagger_id context],
+                         name: 'taggings_idy'
+      add_index :taggings, %i[taggable_id taggable_type tagger_id context],
+                name: 'taggings_idy'
     end
-    # rubocop:enable Style/GuardClause
   end
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength

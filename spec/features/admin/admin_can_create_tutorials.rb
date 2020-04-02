@@ -9,7 +9,8 @@ describe 'An admin user can add tags to tutorials' do
     tutorial = create(:tutorial)
     create(:video, tutorial_id: tutorial.id)
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+    allow_any_instance_of(ApplicationController)
+      .to receive(:current_user).and_return(admin)
 
     VCR.turned_off do
       WebMock.allow_net_connect!
@@ -31,7 +32,8 @@ describe 'An admin user can add tags to tutorials' do
     tutorial = create(:tutorial)
     create(:video, tutorial_id: tutorial.id)
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+    allow_any_instance_of(ApplicationController)
+      .to receive(:current_user).and_return(admin)
 
     VCR.turned_off do
       WebMock.allow_net_connect!
@@ -41,7 +43,8 @@ describe 'An admin user can add tags to tutorials' do
 
       fill_in 'tutorial[thumbnail]', with: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Logan_Rock_Treen_closeup.jpg'
       click_on 'Save'
-      expect(page).to have_content("Title can't be blank and Description can't be blank")
+      expect(page)
+        .to have_content("Title can't be blank and Description can't be blank")
       fill_in 'tutorial[title]', with: 'test'
       fill_in 'tutorial[description]', with: 'test description'
       fill_in 'tutorial[thumbnail]', with: '-2fonqoiur.fjwoaiepgba'

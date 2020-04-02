@@ -14,7 +14,8 @@ RSpec.describe 'as a guess user', type: :feature do
 
       expect(page).to have_content("Logged in as #{user.first_name}")
       expect(user.status).to eq('inactive')
-      expect(page).to have_content('This account has not yet been activated. Please check your email.')
+      ex = 'This account has not yet been activated. Please check your email.'
+      expect(page).to have_content(ex)
     end
   end
 end

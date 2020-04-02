@@ -11,7 +11,8 @@ describe 'A registered user', :vcr do # rubocop:todo Metrics/BlockLength
     user.username = 'willkunz13'
     user.save
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController)
+      .to receive(:current_user).and_return(user)
     visit dashboard_path
     within('.github') do
       expect(page).to have_content('GITHUB')
@@ -28,7 +29,8 @@ describe 'A registered user', :vcr do # rubocop:todo Metrics/BlockLength
     user.username = 'willkunz13'
     user.save
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController)
+      .to receive(:current_user).and_return(user)
 
     visit dashboard_path
     within('.github') do
@@ -46,7 +48,8 @@ describe 'A registered user', :vcr do # rubocop:todo Metrics/BlockLength
     user.username = 'willkunz13'
     user.save
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController)
+      .to receive(:current_user).and_return(user)
 
     last = User.last
     last.token = ENV['GITHUB_EXTRA_KEY']
@@ -70,9 +73,12 @@ describe 'A registered user', :vcr do # rubocop:todo Metrics/BlockLength
 
   it 'bookmarking' do
     tutorial = create(:tutorial, title: 'How to Tie Your Shoes')
-    video = create(:video, title: 'The Bunny Ears Technique', tutorial: tutorial)
+    video = create(:video,
+                   title: 'The Bunny Ears Technique',
+                   tutorial: tutorial)
     user = create(:user)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController)
+      .to receive(:current_user).and_return(user)
 
     UserVideo.create(user_id: user.id, video_id: video.id)
     visit dashboard_path

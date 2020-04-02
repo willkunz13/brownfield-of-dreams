@@ -13,18 +13,19 @@ class WelcomeController < ApplicationController
 
   def visitor_tutorials
     if params[:tag]
-      @tutorials = Tutorial.tagged_with(params[:tag]).where(\
-        classroom: false).paginate(page: params[:page], per_page: 5)
+      @tutorials = Tutorial.tagged_with(params[:tag])
+                           .where(classroom: false)
+                           .paginate(page: params[:page], per_page: 5)
     else
-      @tutorials = Tutorial.where(classroom: false).paginate(\
-        page: params[:page], per_page: 5)
+      @tutorials = Tutorial.where(classroom: false)
+                           .paginate(page: params[:page], per_page: 5)
     end
   end
 
   def user_tutorials
     if params[:tag]
-      @tutorials = Tutorial.tagged_with(params[:tag]).paginate(\
-        page: params[:page], per_page: 5)
+      @tutorials = Tutorial.tagged_with(params[:tag])
+                           .paginate(page: params[:page], per_page: 5)
     else
       @tutorials = Tutorial.all.paginate(page: params[:page], per_page: 5)
     end

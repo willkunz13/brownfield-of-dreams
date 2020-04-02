@@ -13,9 +13,11 @@ Rails.application.configure do # rubocop:todo Metrics/BlockLength
   # Do not swallow errors in after_commit/after_rollback callbacks.
   # config.active_record.raise_in_transactional_callbacks = true
 
-  # Verifies that versions and hashed value of the package contents in the project's package.json
+  # Verifies that versions and hashed value of the package contents in the
+  # project's package.json
   config.webpacker.check_yarn_integrity = true
-  # Settings specified here will take precedence over those in config/application.rb.
+  # Settings specified here will take precedence over
+  # those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -43,7 +45,8 @@ Rails.application.configure do # rubocop:todo Metrics/BlockLength
     config.cache_store = :null_store
   end
 
-  # Store uploaded files on the local file system (see config/storage.yml for options)
+  # Store uploaded files on the local file system
+  # (see config/storage.yml for options)
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
