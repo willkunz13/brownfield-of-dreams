@@ -8,3 +8,4 @@ class GithubController < ApplicationController
 	redirect_to "/dashboard"
   end
 end
+
