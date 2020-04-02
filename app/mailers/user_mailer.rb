@@ -1,4 +1,6 @@
-class UserMailer < ApplicationMailer
+# frozen_string_literal: true
+
+class UserMailer < ApplicationMailer # rubocop:todo Style/Documentation
   def welcome_email
     @user = params[:user]
     @url  = 'http://example.com/login'

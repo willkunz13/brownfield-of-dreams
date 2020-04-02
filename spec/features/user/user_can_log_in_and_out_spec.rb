@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-describe 'User' do
+describe 'User' do # rubocop:todo Metrics/BlockLength
   it 'user can sign in', :vcr do
     user = create(:user)
 
     visit '/'
 
-    click_on "Sign In"
+    click_on 'Sign In'
 
     expect(current_path).to eq(login_path)
 
@@ -26,8 +28,8 @@ describe 'User' do
 
     visit login_path
 
-    fill_in'session[email]', with: user.email
-    fill_in'session[password]', with: user.password
+    fill_in 'session[email]', with: user.email
+    fill_in 'session[password]', with: user.password
 
     click_on 'Log In'
 
@@ -43,24 +45,24 @@ describe 'User' do
   end
 
   it 'is shown an error when incorrect info is entered', :vcr do
-    user = create(:user)
-    fake_email = "email@email.com"
-    fake_password = "123"
+    create(:user)
+    fake_email = 'email@email.com'
+    fake_password = '123'
 
     visit login_path
 
-    fill_in'session[email]', with: fake_email
-    fill_in'session[password]', with: fake_password
+    fill_in 'session[email]', with: fake_email
+    fill_in 'session[password]', with: fake_password
 
     click_on 'Log In'
 
-    expect(page).to have_content("Looks like your email or password is invalid")
+    expect(page).to have_content('Looks like your email or password is invalid')
   end
 
-  it "can flash error if username already exist" do
-    user = create(:user, email: 'ray@mail.com', first_name: 'ray')
+  it 'can flash error if username already exist' do
+    create(:user, email: 'ray@mail.com', first_name: 'ray')
     visit '/register'
-    
+
     fake_email = 'ray@mail.com'
 
     fill_in :user_email, with: fake_email
@@ -71,6 +73,6 @@ describe 'User' do
 
     click_on 'Create Account'
 
-    expect(page).to have_content("Username already exists")
+    expect(page).to have_content('Username already exists')
   end
 end

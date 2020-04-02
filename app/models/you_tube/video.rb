@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module YouTube
-  class Video
+  class Video # rubocop:todo Style/Documentation
     attr_reader :thumbnail
 
     def initialize(data = {})

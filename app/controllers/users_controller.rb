@@ -1,4 +1,6 @@
-class UsersController < ApplicationController
+# frozen_string_literal: true
+
+class UsersController < ApplicationController # rubocop:todo Style/Documentation
   def show
     render locals: {
       dash: DashboardFacade.new(current_user)
@@ -18,7 +20,7 @@ class UsersController < ApplicationController
       redirect_to dashboard_path
     else
       flash[:error] = 'Username already exists'
-      redirect_back(fallback_location: "/register")
+      redirect_back(fallback_location: '/register')
     end
   end
 
@@ -27,5 +29,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :password)
   end
-
 end
