@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'tags/:tag', to: 'welcome#index', as: :tag
   get '/register', to: 'users#new'
+  get '/users/:id/activate', to: 'activate#update'
+  get '/users/activated', to: 'activate#show'
 
   namespace :admin do
     get "/dashboard", to: "dashboard#show"

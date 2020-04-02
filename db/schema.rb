@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_181736) do
     t.string "uid"
     t.string "username"
     t.string "token"
+    t.integer "status", default: 0
     t.index ["email"], name: "index_users_on_email"
   end
 

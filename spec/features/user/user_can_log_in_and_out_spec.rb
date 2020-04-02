@@ -58,16 +58,16 @@ describe 'User' do
   end
 
   it "can flash error if username already exist" do
-    user = create(:user, email: "ray@mail.com", first_name: "ray")
+    user = create(:user, email: 'ray@mail.com', first_name: 'ray')
     visit '/register'
     
-    fake_email = "ray@mail.com"
+    fake_email = 'ray@mail.com'
 
     fill_in :user_email, with: fake_email
-    fill_in :user_first_name, with: "fake"
-    fill_in :user_last_name, with: "fake"
-    fill_in :user_password, with: "fake"
-    fill_in :user_password_confirmation, with: "fake"
+    fill_in :user_first_name, with: 'fake'
+    fill_in :user_last_name, with: 'fake'
+    fill_in :user_password, with: 'fake'
+    fill_in :user_password_confirmation, with: 'fake'
 
     click_on 'Create Account'
 

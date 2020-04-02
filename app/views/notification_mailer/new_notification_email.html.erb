@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>You got a new notification from Turing!</p>
+    <p>
+    Activate your account<br>
+    --------------------------
+    </p>
+    <p>Name: <%= @user.first_name %></p>
+    <p>Email: <%= @user.email %></p>
+    <p>Message: To activate your account click link below<br>
+    <%= link_to "Visit here to activate your account.", "localhost:3000/users/#{@user.id}/activate", method: :get%>
+    ----------
+    </p>
+  </body>
+</html>

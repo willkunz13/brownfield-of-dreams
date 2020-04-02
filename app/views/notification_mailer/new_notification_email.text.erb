@@ -1,0 +1,10 @@
+You got a new notification from Turing!
+===============================================
+
+Name: <%= @user.first_name %>
+Email: <%= @user.email %>
+
+
+Message: To activate your account click link below
+    <%= link_to "Visit here to activate your account.", "localhost:3000/users/#{@user.id}/activate", method: :get%>
+    ----------

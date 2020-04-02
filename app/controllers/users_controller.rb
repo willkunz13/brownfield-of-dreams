@@ -13,6 +13,8 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     if user.save
       session[:user_id] = user.id
+      NotificationMailer.new_notification_email(user).deliver_now
+      flash[:success] = "Email has been sent to #{user.first_name}'s' email."
       redirect_to dashboard_path
     else
       flash[:error] = 'Username already exists'

@@ -76,7 +76,6 @@ describe 'A registered user', :vcr do
 		
 		UserVideo.create(user_id: user.id, video_id: video.id)
 		visit dashboard_path
-		save_and_open_page
 		expect(page).to have_content(video.title)
 	end
 end
