@@ -1,3 +1,6 @@
+# rubocop:todo Style/Documentation
+# frozen_string_literal: true
+
 class CreateFriendships < ActiveRecord::Migration[5.2]
   def change
     create_table :friendships do |t|
@@ -8,3 +11,4 @@ class CreateFriendships < ActiveRecord::Migration[5.2]
     end
   end
 end
+# rubocop:enable Style/Documentation

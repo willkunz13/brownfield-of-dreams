@@ -1,4 +1,6 @@
-class Repo
+# frozen_string_literal: true
+
+class Repo # rubocop:todo Style/Documentation
   attr_reader :name, :url
 
   def initialize(data)
@@ -6,4 +8,3 @@ class Repo
     @url = data[:html_url]
   end
 end
-

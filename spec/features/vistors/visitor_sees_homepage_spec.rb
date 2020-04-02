@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'Visitor' do
@@ -6,10 +8,10 @@ describe 'Visitor' do
       tutorial1 = create(:tutorial)
       tutorial2 = create(:tutorial)
 
-      video1 = create(:video, tutorial_id: tutorial1.id)
-      video2 = create(:video, tutorial_id: tutorial1.id)
-      video3 = create(:video, tutorial_id: tutorial2.id)
-      video4 = create(:video, tutorial_id: tutorial2.id)
+      create(:video, tutorial_id: tutorial1.id)
+      create(:video, tutorial_id: tutorial1.id)
+      create(:video, tutorial_id: tutorial2.id)
+      create(:video, tutorial_id: tutorial2.id)
 
       visit root_path
 
