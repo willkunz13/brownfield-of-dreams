@@ -1,19 +1,27 @@
-class Admin::Api::V1::BaseController < ActionController::API
-  before_action :require_admin!
+# rubocop:todo Style/Documentation
+# frozen_string_literal: true
 
-  def require_admin!
-    four_oh_four unless current_user.admin?
-  end
+class Admin
+  class Api
+    class V1
+      class BaseController < ActionController::API
+      before_action :require_admin!
 
-  def current_user
-    if session[:user_id]
-      @current_user ||= User.find(session[:user_id])
-    else
-      @current_user ||= User.new
+      def require_admin!
+        four_oh_four unless current_user.admin?
+      end
+
+      def current_user
+        @current_user ||= if session[:user_id]
+                            User.find(session[:user_id])
+                          else
+                            User.new
+                          end
+      end
+
+      def four_oh_four
+        raise ActionController::RoutingError, 'Not Found'
+      end
     end
-  end
-
-  def four_oh_four
-    raise ActionController::RoutingError.new('Not Found')
   end
 end

@@ -1,12 +1,14 @@
-class Follower
-	attr_reader :name, :url
+# frozen_string_literal: true
 
-	def initialize(data)
-		@name = data[:login]
-		@url = data[:html_url]
-	end
+class Follower # rubocop:todo Style/Documentation
+  attr_reader :name, :url
 
-	def link
-		User.where(username: name).first
-	end
+  def initialize(data)
+    @name = data[:login]
+    @url = data[:html_url]
+  end
+
+  def link
+    User.where(username: name).first
+  end
 end

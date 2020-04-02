@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'vister can create an account', :js, :vcr do
@@ -6,7 +8,6 @@ describe 'vister can create an account', :js, :vcr do
     first_name = 'Jim'
     last_name = 'Bob'
     password = 'password'
-    password_confirmation = 'password'
 
     visit '/'
 
@@ -24,7 +25,7 @@ describe 'vister can create an account', :js, :vcr do
     fill_in 'user[password]', with: password
     fill_in 'user[password_confirmation]', with: password
 
-    click_on'Create Account'
+    click_on 'Create Account'
 
     expect(current_path).to eq(dashboard_path)
 

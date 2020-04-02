@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'visitor sees a video show' do
@@ -14,14 +16,13 @@ describe 'visitor sees a video show' do
     expect(page).to have_content(tutorial.title)
   end
 
-
   it 'catch can\'t see classroom video' do
-	tutorial = create(:tutorial)
-    video = create(:video, tutorial_id: tutorial.id)
-	tutorial.classroom = true
-	tutorial.save
+    tutorial = create(:tutorial)
+    create(:video, tutorial_id: tutorial.id)
+    tutorial.classroom = true
+    tutorial.save
 
     visit '/'
-	expect(page).to_not have_content(tutorial.title)
+    expect(page).to_not have_content(tutorial.title)
   end
 end
