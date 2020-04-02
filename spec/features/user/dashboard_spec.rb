@@ -63,5 +63,9 @@ describe 'A registered user', :vcr do
 			click_on "Add Friend"
 		end
 			expect(page).to have_content("Already a Friend")
+			save_and_open_page
+			within("#Friends") do
+				expect(page).to have_content("itemniner")
+			end
 	end
 end

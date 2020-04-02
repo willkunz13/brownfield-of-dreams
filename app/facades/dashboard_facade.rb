@@ -23,4 +23,8 @@ class DashboardFacade
 				Followee.new(followee)
 			end
 	end
+	
+	def friends
+		User.find(@current_user.id).preys
+	end
 end

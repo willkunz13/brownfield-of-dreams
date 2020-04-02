@@ -13,9 +13,9 @@ class User::FriendsController < ApplicationController
 	private
 		
 	def create_friendship(source, target) 
-		previous_friendship = Friendship.where(friender_id: source.id, friendee_id: target.id)
+		previous_friendship = Friendship.where(predator_id: source.id, prey_id: target.id)
 		if previous_friendship.empty?
-			Friendship.create(friender_id: source.id, friendee_id: target.id)
+			Friendship.create(predator_id: source.id, prey_id: target.id)
 	 	  flash[:notice] = "Friendship Created"
 			redirect_back(fallback_location: '/')
 		else

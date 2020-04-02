@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2020_04_01_181736) do
   enable_extension "plpgsql"
 
   create_table "friendships", force: :cascade do |t|
-    t.bigint "friender_id"
-    t.bigint "friendee_id"
+    t.bigint "predator_id"
+    t.bigint "prey_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

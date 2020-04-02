@@ -32,7 +32,14 @@
   <% end %>
 	</section>
   </section>
- 
+	<% if dash.friends %>
+		<h3> Friends </h3>
+		<section id="Friends">
+			<% dash.friends.each do |friend| %>
+				<p> <%= friend.username %> </p>
+			<% end %>
+		</section>
+	<% end %>
 
   <%= button_to 'Log Out', logout_path, method: 'delete', class: "btn btn-primary mb1 bg-teal" %>
   <h3>Account Details</h3>

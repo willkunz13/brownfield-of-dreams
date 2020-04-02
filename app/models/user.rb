@@ -8,12 +8,12 @@ class User < ApplicationRecord
   enum role: [:default, :admin]
   has_secure_password
 
-	has_many :friends_added, foreign_key: 'friender_id',
-										 			 class_name: 'Friendship',
-										 			 dependent: :destroy
-	has_many :friendees, through: :friends_added
-	has_many :added_by, foreign_key: 'friendee_id',
-										  class_name: 'Friendship',
-										  dependent: :destroy
-	has_many :frienders, through: :added_by
+	has_many :pursuits,  :foreign_key => 'predator_id',
+                       :class_name => 'Friendship',
+                       :dependent => :destroy
+  has_many :preys,     :through => :pursuits
+  has_many :escapes,   :foreign_key => 'prey_id',
+                       :class_name => 'Friendship',
+                       :dependent => :destroy
+  has_many :predators, :through => :escapes
 end
