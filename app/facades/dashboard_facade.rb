@@ -27,4 +27,8 @@ class DashboardFacade
 	def friends
 		User.find(@current_user.id).preys
 	end
+
+	def bookmarks
+		User.find(@current_user.id).videos.order(:tutorial_id)	
+	end
 end

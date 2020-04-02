@@ -63,9 +63,20 @@ describe 'A registered user', :vcr do
 			click_on "Add Friend"
 		end
 			expect(page).to have_content("Already a Friend")
-			save_and_open_page
 			within("#Friends") do
 				expect(page).to have_content("itemniner")
 			end
+	end
+
+	it 'bookmarking' do
+		tutorial= create(:tutorial, title: "How to Tie Your Shoes")
+    video = create(:video, title: "The Bunny Ears Technique", tutorial: tutorial)
+    user = create(:user)
+		allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+		
+		UserVideo.create(user_id: user.id, video_id: video.id)
+		visit dashboard_path
+		save_and_open_page
+		expect(page).to have_content(video.title)
 	end
 end

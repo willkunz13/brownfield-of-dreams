@@ -49,6 +49,9 @@
   </ul>
   <section>
     <h1>Bookmarked Segments</h1>
+			<% dash.bookmarks.each do |bookmark| %>
+				<p><%= bookmark.title %></p>
+			<% end %>
     <%= link_to "Connect to GitHub", github_login_path %>
   </section>
 </section>
